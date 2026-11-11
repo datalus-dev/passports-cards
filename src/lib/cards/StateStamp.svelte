@@ -1,5 +1,5 @@
 <script>
-	import { fontFamily } from '../font.js';
+	import { fontFamily, codeFamily } from '../font.js';
 
 	/**
 	 * @type {{
@@ -68,7 +68,7 @@
 		</div>
 	{/if}
 
-	<div class="stamp-code" class:edit={editMode && !simple}>{code}</div>
+	<div class="stamp-code" class:edit={editMode && !simple} style:font-family={codeFamily(font)}>{code}</div>
 
 	{#if !simple}
 		{@render controls?.()}
@@ -146,7 +146,6 @@
 		left: auto;
 		font-size: 0.6rem;
 		font-weight: 700;
-		font-family: ui-monospace, 'SF Mono', monospace;
 		color: oklch(50% 0 0);
 		opacity: 0.7;
 		transition: right 0.2s ease, left 0.2s ease, opacity 0.2s ease;

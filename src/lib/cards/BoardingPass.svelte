@@ -1,5 +1,5 @@
 <script>
-	import { fontFamily } from '../font.js';
+	import { fontFamily, codeFamily } from '../font.js';
 
 	/**
 	 * @type {{
@@ -66,7 +66,7 @@
 
 			<div class="route">
 				<div class="endpoint origin">
-					<span class="code">{from}</span>
+					<span class="code" style:font-family={codeFamily(font)}>{from}</span>
 					<span class="city">{from_city}</span>
 				</div>
 
@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="endpoint destination">
-					<span class="code">{to}</span>
+					<span class="code" style:font-family={codeFamily(font)}>{to}</span>
 					<span class="city">{to_city}</span>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				<span class="date">{date}</span>
 				<div class="carrier-info">
 					{#if carrier_code && !simple}
-						<span class="carrier-code">{carrier_code}</span>
+						<span class="carrier-code" style:font-family={codeFamily(font)}>{carrier_code}</span>
 					{/if}
 					{#if stack > 1 && !simple}
 						<span class="leg-count">{stack} legs</span>
@@ -222,7 +222,6 @@
 	.code {
 		font-size: 1.6rem;
 		font-weight: 700;
-		font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
 		letter-spacing: -0.02em;
 		color: oklch(20% 0.01 85);
 		line-height: 1;
@@ -300,7 +299,6 @@
 	.carrier-code {
 		font-size: 0.65rem;
 		font-weight: 700;
-		font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
 		color: oklch(45% 0.01 85);
 		letter-spacing: 0.04em;
 	}

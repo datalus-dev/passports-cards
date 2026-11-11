@@ -5,7 +5,7 @@ export { default as StateStamp } from './cards/StateStamp.svelte';
 export { default as BoardingPass } from './cards/BoardingPass.svelte';
 export { default as BeaconCard } from './cards/BeaconCard.svelte';
 export { default as SelloCard } from './cards/SelloCard.svelte';
-export { MONO_STACK, fontFamily } from './font.js';
+export { MONO_STACK, CODE_STACK, fontFamily, codeFamily } from './font.js';
 export { STATE_PATHS } from './data/state-paths.js';
 export { ROUTE_COLORS, DEFAULT_ROUTE_COLOR, SELLO_SWATCHES } from './data/camino-routes.js';
 export { BEACON_CATEGORIES, DEFAULT_BEACON_CATEGORY, beaconCategory } from './data/beacon-categories.js';

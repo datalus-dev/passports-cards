@@ -1,5 +1,5 @@
 <script>
-	import { fontFamily } from '../font.js';
+	import { fontFamily, codeFamily } from '../font.js';
 
 	/**
 	 * @type {{
@@ -67,13 +67,13 @@
 				{/if}
 				<div class="tag-destination">
 					<span class="dest-city">{city}</span>
-					<span class="dest-code">{code}</span>
+					<span class="dest-code" style:font-family={codeFamily(font)}>{code}</span>
 				</div>
 
 				<div class="tear-line"></div>
 
 				<div class="tag-footer">
-					<span class="origin-code">{origin}</span>
+					<span class="origin-code" style:font-family={codeFamily(font)}>{origin}</span>
 					<div class="tag-footer-right">
 						<span class="tag-date">{date}</span>
 						{#if stack > 1 && !simple}<span class="tag-legs">{stack} legs</span>{/if}
@@ -232,7 +232,6 @@
 	.dest-code {
 		font-size: 0.6rem;
 		font-weight: 700;
-		font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
 		color: oklch(55% 0.01 85);
 		letter-spacing: 0.06em;
 	}
@@ -258,7 +257,6 @@
 	.origin-code {
 		font-size: 0.75rem;
 		font-weight: 700;
-		font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
 		color: oklch(35% 0.01 85);
 		letter-spacing: 0.02em;
 	}

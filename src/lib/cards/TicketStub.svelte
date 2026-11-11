@@ -29,11 +29,11 @@
 	 *   `art` is the emoji shown when there is no image. `imageUrl` + `showImage` show the photo in
 	 *   the art area; `onOpenImage` fires when it is clicked and `onToggleImage` flips between photo
 	 *   and ticket (the toggle button stays, hidden, when there is no image so the footer height does
-	 *   not change). `punch` draws the top punch hole (hosts turn it off while a control sits there).
+	 *   not change). `punch` cuts the half circle at the top edge (hosts turn it off while a control sits there).
 	 *   `art` also marks the toggle while the photo shows. `reserveTitle` keeps two lines of height for
 	 *   the title; `showInfoLabel`/`showImageLabel` are the toggle's accessible names. `badgeSlot`
 	 *   replaces the badge (the host puts an editable category there) and `overlay` renders after the
-	 *   bottom punch hole (a corner link). `controls` renders first inside the ticket (the host's select/delete button); `strip` renders
+	 *   bottom edge cut (a corner link). `controls` renders first inside the ticket (the host's select/delete button); `strip` renders
 	 *   last inside it (the host's visibility row).
 	 */
 	let {
@@ -66,9 +66,7 @@
 </script>
 
 <div class="ticket-wrap" style:font-family={fontFamily(font)}>
-	<div class="ticket" style="--entry-color: {color}; --entry-ctl-top: 0.375rem">
-		{#if punch}<div class="punch punch--top"></div>{/if}
-
+	<div class="ticket" class:flat-top={!punch} style="--entry-color: {color}; --entry-ctl-top: 0.375rem">
 		{#if !simple}{@render controls?.()}{/if}
 
 		<div class="ticket-header"></div>
@@ -90,9 +88,7 @@
 		</div>
 
 		<div class="ticket-divider">
-			<div class="notch notch--left"></div>
 			<div class="tear-line"></div>
-			<div class="notch notch--right"></div>
 		</div>
 
 		<div class="ticket-info">
@@ -117,8 +113,6 @@
 			</div>
 		</div>
 
-		<div class="punch punch--bottom"></div>
-
 		{@render overlay?.()}
 
 		{#if !simple}{@render strip?.()}{/if}
@@ -140,24 +134,26 @@
 		background: oklch(97% 0.01 85);
 		border-radius: 0.75rem;
 		overflow: hidden;
+		/* Cut outs, not painted circles: the page shows through them. A half circle at the top and bottom edge (the top one is left
+		   out while the select or delete control sits there), and one at each side where the tear line is: the header is 2rem and
+		   the art 8rem, so the line is 10.5rem down. The wrap's drop shadow follows the cut. */
+		--cut-top: radial-gradient(circle at 50% 0, transparent 0.375rem, #000 calc(0.375rem + 0.6px));
+		-webkit-mask-image:
+			var(--cut-top),
+			radial-gradient(circle at 50% 100%, transparent 0.375rem, #000 calc(0.375rem + 0.6px)),
+			radial-gradient(circle at 0 10.5rem, transparent 0.5rem, #000 calc(0.5rem + 0.6px)),
+			radial-gradient(circle at 100% 10.5rem, transparent 0.5rem, #000 calc(0.5rem + 0.6px));
+		mask-image:
+			var(--cut-top),
+			radial-gradient(circle at 50% 100%, transparent 0.375rem, #000 calc(0.375rem + 0.6px)),
+			radial-gradient(circle at 0 10.5rem, transparent 0.5rem, #000 calc(0.5rem + 0.6px)),
+			radial-gradient(circle at 100% 10.5rem, transparent 0.5rem, #000 calc(0.5rem + 0.6px));
+		-webkit-mask-composite: source-in;
+		mask-composite: intersect;
 	}
 
-	.punch {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 0.75rem;
-		height: 0.75rem;
-		border-radius: 50%;
-		background: oklch(15% 0.02 260);
-		z-index: 2;
-	}
-
-	.punch--top {
-		top: -0.375rem;
-	}
-	.punch--bottom {
-		bottom: -0.375rem;
+	.ticket.flat-top {
+		--cut-top: linear-gradient(#000, #000);
 	}
 
 	.ticket-header {
@@ -216,22 +212,6 @@
 		height: 1rem;
 		display: flex;
 		align-items: center;
-	}
-
-	.notch {
-		position: absolute;
-		width: 1rem;
-		height: 1rem;
-		border-radius: 50%;
-		background: oklch(15% 0.02 260);
-		z-index: 2;
-	}
-
-	.notch--left {
-		left: -0.5rem;
-	}
-	.notch--right {
-		right: -0.5rem;
 	}
 
 	.tear-line {

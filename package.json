@@ -1,0 +1,44 @@
+{
+	"name": "passports-cards",
+	"version": "0.1.0",
+	"description": "Passport card components for passports.social and a data-driven card fan",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/datalus-dev/passports-cards.git"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "svelte-package",
+		"prepare": "svelte-kit sync && svelte-package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json"
+	},
+	"files": [
+		"dist"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/kit": "^2.57.1",
+		"@sveltejs/package": "^2.5.0",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
+		"svelte": "^5.53.12",
+		"svelte-check": "^4.0.0",
+		"vite": "^8.0.9"
+	}
+}

@@ -58,6 +58,24 @@
 		<h2>Fan, simplified (default)</h2>
 		<CardFan {cards} font={fanFont} label="Sample cards from each passport" />
 
+		<h2>Curved fan, <code>mode="curved"</code></h2>
+		<p>
+			Cards turn about one pivot below the fan, like a hand of cards. Hover or focus a card to lift it; each card links to its
+			passport. <code>step</code> is the degrees between cards and <code>radius</code> the rem to the pivot.
+		</p>
+		<CardFan {cards} mode="curved" font={fanFont} label="Sample cards from each passport, curved" />
+
+		<h2>Curved, tight pivot, <code>breathe</code></h2>
+		<CardFan cards={cards.slice(0, 5)} mode="curved" step={13} radius={4} breathe font={fanFont} />
+
+		<h2>Curved, <code>align="center"</code></h2>
+		<p>Every card's center sits on one arc, so tall and short cards share the curve instead of standing on one baseline.</p>
+		<CardFan {cards} mode="curved" align="center" step={16} radius={9} font={fanFont} />
+
+		<h2>Curved, <code>level</code></h2>
+		<p>Each card is lifted so its highest point sits at the same height, for a fan that peeks over an edge.</p>
+		<CardFan {cards} mode="curved" level step={13} radius={4.4} font={fanFont} />
+
 		<h2>Fan, <code>variant="full"</code></h2>
 		<CardFan {cards} font={fanFont} variant="full" />
 

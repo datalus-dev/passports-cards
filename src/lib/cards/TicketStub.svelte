@@ -261,7 +261,7 @@
 
 	.ticket-genres {
 		font-size: 0.54rem;
-		color: oklch(55% 0.01 85);
+		color: oklch(50% 0.01 85);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -302,7 +302,7 @@
 
 	.ticket-date {
 		font-size: 0.46rem;
-		color: oklch(55% 0.01 85);
+		color: oklch(50% 0.01 85);
 		font-variant-numeric: tabular-nums;
 	}
 

@@ -1,5 +1,7 @@
 # passports-cards
 
+> **This GitHub repository is a read-only mirror.** Development, pull requests and issues happen on Tangled: **https://tangled.org/passports.social/passports-cards**. They can't be opened here.
+
 Entry cards for [passports.social](https://passports.social): the travel tag, boarding pass, ticket stub, state stamp, Beacon and sello, as Svelte 5 components. One source of truth for how a passport entry looks, used by the passports.social app and by sites that show a sample of it.
 
 Also exports `CardFan`, a data-driven row of overlapping cards.
@@ -53,12 +55,12 @@ npm run build   # svelte-package into dist/
 
 ## Contributing
 
-Changes here change every site that pins a newer commit, so keep a card's look stable unless the change is the point. Cards must not import from any app. Community passports bring their own cards through [passports-plugins](https://github.com/datalus-dev/passports-plugins), not this repo.
+Changes here change every site that pins a newer commit, so keep a card's look stable unless the change is the point. Cards must not import from any app. Community passports bring their own cards through [passports-plugins](https://tangled.org/passports.social/passports-plugins), not this repo.
 
 ## Where it lives
 
-- GitHub: https://github.com/datalus-dev/passports-cards
-- Tangled: https://tangled.org/passports.social/passports-cards
+- Tangled (home, send pull requests here): https://tangled.org/passports.social/passports-cards
+- GitHub (read-only mirror): https://github.com/datalus-dev/passports-cards
 
 ## License
 

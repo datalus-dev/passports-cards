@@ -1,6 +1,7 @@
 <script>
-	import { CardFan } from '$lib';
-	import { cards } from './samples.js';
+	import { CardFan, sampleCards } from '$lib';
+
+	const cards = sampleCards('https://passports.social');
 
 	const FONTS = [
 		{ id: 'mono', label: 'DM Mono (default)' },

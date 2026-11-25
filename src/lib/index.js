@@ -1,4 +1,6 @@
 export { default as CardFan } from './CardFan.svelte';
+export { CARD_TYPES } from './registry.js';
+export { SAMPLE_CARDS, sampleCards } from './data/samples.js';
 export { default as TravelTag } from './cards/TravelTag.svelte';
 export { default as TicketStub } from './cards/TicketStub.svelte';
 export { default as StateStamp } from './cards/StateStamp.svelte';

@@ -1,24 +1,9 @@
 <script>
-	import TravelTag from './cards/TravelTag.svelte';
-	import TicketStub from './cards/TicketStub.svelte';
-	import StateStamp from './cards/StateStamp.svelte';
-	import BoardingPass from './cards/BoardingPass.svelte';
-	import BeaconCard from './cards/BeaconCard.svelte';
-	import SelloCard from './cards/SelloCard.svelte';
+	import { CARD_TYPES as REGISTRY } from './registry.js';
 	import { STATE_PATHS } from './data/state-paths.js';
 	import { onMount } from 'svelte';
 
 	/** @import { FanCard } from './types.js' */
-
-	/** @type {Record<string, import('svelte').Component<any>>} */
-	const REGISTRY = {
-		'travel-tag': TravelTag,
-		'ticket-stub': TicketStub,
-		'state-stamp': StateStamp,
-		'boarding-pass': BoardingPass,
-		beacon: BeaconCard,
-		sello: SelloCard
-	};
 
 	/**
 	 * @type {{ cards?: FanCard[], label?: string, overlap?: number, font?: 'mono' | 'inherit', variant?: 'full' | 'simplified', mode?: 'flat' | 'curved', step?: number, radius?: number, breathe?: boolean, level?: boolean, align?: 'bottom' | 'center' }}

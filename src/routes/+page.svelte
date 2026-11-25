@@ -1,7 +1,7 @@
 <script>
 	import { CardFan, sampleCards } from '$lib';
 
-	const cards = sampleCards('https://passports.social');
+	const cards = sampleCards({ origin: 'https://passports.social' });
 
 	const FONTS = [
 		{ id: 'mono', label: 'DM Mono (default)' },
